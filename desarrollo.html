@@ -1,11 +1,15 @@
+Claro. Acá tenés el código completo de la página `desarrollo.html`, ya con los dos iframe que me pasaste: Calaméo en el ítem 1 y Facebook en el ítem 8.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desarrollo del Trabajo Práctico Integrador</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <nav class="navbar" aria-label="Navegación principal">
@@ -13,11 +17,13 @@
         <span class="brand-mark" aria-hidden="true">UP</span>
         <span>UPAF Agroecológica</span>
       </a>
+
       <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
+
       <div class="nav-links">
         <a href="index.html">Inicio</a>
         <a class="active" href="desarrollo.html">Desarrollo del TPI</a>
@@ -44,7 +50,12 @@
         <h2>Folleto Díptico</h2>
         <p>Espacio preparado para insertar folleto digital, PDF o publicación interactiva.</p>
         <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá el díptico embebido mediante iframe.</div>
+          <iframe
+            title="Folleto Díptico - UPAF"
+            src="https://v.calameo.com/?bkcode=008247612fd57a6945a5d&mode=viewer"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
           <span class="tile-action">Ampliar recurso</span>
         </div>
       </article>
@@ -135,7 +146,13 @@
         <h2>Publicación para Redes Sociales y FODA</h2>
         <p>Contenedor para pieza gráfica, publicación digital y análisis FODA asociado.</p>
         <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá la publicación y el FODA.</div>
+          <iframe
+            title="Publicación en Facebook sobre la UPAF"
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid021XGgcSFDcW9GxDCyUX4ro1nxo2UN8PsGBqVs6NQ2mXGyNm9vTJs4uSeEaK51vmCpl%26id%3D100057621193525&show_text=true&width=500"
+            loading="lazy"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
           <span class="tile-action">Ampliar recurso</span>
         </div>
       </article>
@@ -162,3 +179,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+```
