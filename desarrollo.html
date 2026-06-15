@@ -1,28 +1,337 @@
-Claro. Acá tenés el código completo de la página `desarrollo.html`, ya con los dos iframe que me pasaste: Calaméo en el ítem 1 y Facebook en el ítem 8.
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desarrollo del Trabajo Práctico Integrador</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --green-900: #273f2f;
+      --green-700: #3f6f4a;
+      --sage: #dfe8d8;
+      --earth: #8a6748;
+      --cream: #fbfaf4;
+      --white: #ffffff;
+      --ink: #243027;
+      --muted: #657062;
+      --line: #e4dfd1;
+      --shadow: 0 18px 45px rgba(39, 63, 47, 0.12);
+      --radius: 10px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 250, 244, 0.95);
+      backdrop-filter: blur(14px);
+    }
+
+    .navbar {
+      width: min(100% - 32px, var(--max-width));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--green-900);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: white;
+      background: linear-gradient(135deg, var(--green-700), var(--earth));
+      font-size: 0.86rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      color: var(--green-900);
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+      background: var(--green-700);
+    }
+
+    .page-title {
+      padding: 120px 0 50px;
+      background: linear-gradient(135deg, rgba(223, 232, 216, 0.9), rgba(244, 239, 227, 0.72));
+    }
+
+    .page-title > div,
+    .dashboard-grid {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--earth);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      color: var(--green-900);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.18;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+    }
+
+    .page-title p:not(.eyebrow) {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 22px;
+      padding: 56px 0 84px;
+    }
+
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 96px;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 54px rgba(39, 63, 47, 0.16);
+    }
+
+    .resource-card.is-expanded {
+      grid-column: 1 / -1;
+      min-height: auto;
+    }
+
+    .resource-card.is-expanded:hover {
+      transform: none;
+    }
+
+    .card-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .item-number {
+      color: var(--earth);
+      font-weight: 900;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: var(--green-900);
+      background: var(--sage);
+      font-weight: 900;
+    }
+
+    .resource-card h2 {
+      min-height: 64px;
+      font-size: 1.35rem;
+    }
+
+    .resource-card p {
+      flex: 1;
+      margin: 14px 0 22px;
+      color: var(--muted);
+    }
+
+    .embed-tile {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      margin-top: auto;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 12px 28px rgba(39, 63, 47, 0.1);
+      transition: height 220ms ease, box-shadow 180ms ease;
+    }
+
+    .embed-tile iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: white;
+    }
+
+    .iframe-placeholder {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      color: var(--green-900);
+      background:
+        linear-gradient(135deg, rgba(223, 232, 216, 0.72), rgba(244, 239, 227, 0.3)),
+        white;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .resource-card.is-expanded .embed-tile {
+      height: 640px;
+      margin-top: 20px;
+      box-shadow: none;
+    }
+
+    .expand-control {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      width: 100%;
+      border: 0;
+      color: var(--green-900);
+      background: linear-gradient(180deg, transparent 45%, rgba(39, 63, 47, 0.24));
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .expand-control span {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 6px 11px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 8px 20px rgba(39, 63, 47, 0.12);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .resource-card.is-expanded .expand-control {
+      inset: auto 12px 12px auto;
+      width: auto;
+      background: transparent;
+    }
+
+    .resource-card.is-expanded .expand-control span {
+      position: static;
+      display: inline-block;
+    }
+
+    .footer {
+      padding: 30px 16px;
+      color: rgba(255, 255, 255, 0.85);
+      background: var(--green-900);
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 940px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-card,
+      .resource-card.is-expanded {
+        grid-column: auto;
+      }
+
+      .resource-card h2 {
+        min-height: 0;
+      }
+
+      .embed-tile {
+        height: 230px;
+      }
+
+      .resource-card.is-expanded .embed-tile {
+        height: 520px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <header class="site-header">
-    <nav class="navbar" aria-label="Navegación principal">
+    <nav class="navbar">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">UP</span>
+        <span class="brand-mark">UP</span>
         <span>UPAF Agroecológica</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
 
       <div class="nav-links">
         <a href="index.html">Inicio</a>
@@ -33,140 +342,162 @@ Claro. Acá tenés el código completo de la página `desarrollo.html`, ya con l
   </header>
 
   <main>
-    <section class="page-title dashboard-title">
-      <div class="reveal">
+    <section class="page-title">
+      <div>
         <p class="eyebrow">Dashboard académico</p>
         <h1>Desarrollo del Trabajo Práctico Integrador</h1>
         <p>Panel organizado para alojar los recursos, evidencias y producciones finales del recorrido.</p>
       </div>
     </section>
 
-    <section class="dashboard-grid" aria-label="Ítems del trabajo práctico integrador">
-      <article class="resource-card reveal">
+    <section class="dashboard-grid">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">01</span>
-          <span class="card-icon" aria-hidden="true">▤</span>
+          <span class="card-icon">D</span>
         </div>
         <h2>Folleto Díptico</h2>
-        <p>Espacio preparado para insertar folleto digital, PDF o publicación interactiva.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
+        <p>Folleto digital de presentación de la UPAF.</p>
+        <div class="embed-tile">
           <iframe
             title="Folleto Díptico - UPAF"
             src="https://v.calameo.com/?bkcode=008247612fd57a6945a5d&mode=viewer"
+            width="480"
+            height="300"
             loading="lazy"
             allowfullscreen>
           </iframe>
-          <span class="tile-action">Ampliar recurso</span>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">02</span>
-          <span class="card-icon" aria-hidden="true">✚</span>
+          <span class="card-icon">V</span>
         </div>
         <h2>Video Seguridad, Higiene y Bioseguridad</h2>
         <p>Contenedor para video educativo sobre prácticas seguras en la producción.</p>
-        <div class="embed-tile video-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá el video embebido de YouTube u otra plataforma.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá el video embebido.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">03</span>
-          <span class="card-icon" aria-hidden="true">⌂</span>
+          <span class="card-icon">P</span>
         </div>
         <h2>Presentación UPAF y análisis de sistemas</h2>
-        <p>Área para una presentación, láminas o recurso interactivo sobre el sistema productivo.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá la presentación embebida.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <p>Área para una presentación o recurso interactivo sobre el sistema productivo.</p>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá la presentación embebida.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">04</span>
-          <span class="card-icon" aria-hidden="true">↻</span>
+          <span class="card-icon">V</span>
         </div>
         <h2>Video Economía Circular</h2>
-        <p>Espacio para el video explicativo sobre economía circular aplicada al contexto agropecuario.</p>
-        <div class="embed-tile video-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá el video de economía circular.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <p>Espacio para el video explicativo sobre economía circular.</p>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá el video de economía circular.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">05</span>
-          <span class="card-icon" aria-hidden="true">⌘</span>
+          <span class="card-icon">M</span>
         </div>
         <h2>Mapa Mental</h2>
         <p>Contenedor para insertar un mapa mental realizado en Canva, Genially u otra herramienta.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá el mapa mental embebido.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá el mapa mental embebido.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">06</span>
-          <span class="card-icon" aria-hidden="true">$</span>
+          <span class="card-icon">$</span>
         </div>
         <h2>Infografía Económica</h2>
-        <p>Área destinada a la infografía con datos económicos, costos o análisis productivo.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá la infografía económica.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <p>Área destinada a la infografía con datos económicos y análisis productivo.</p>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá la infografía económica.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">07</span>
-          <span class="card-icon" aria-hidden="true">☷</span>
+          <span class="card-icon">C</span>
         </div>
         <h2>Calendario Productivo</h2>
         <p>Espacio reservado para calendario de siembra, labores, cosecha y seguimiento.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá el calendario productivo.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá el calendario productivo.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">08</span>
-          <span class="card-icon" aria-hidden="true">#</span>
+          <span class="card-icon">#</span>
         </div>
         <h2>Publicación para Redes Sociales y FODA</h2>
-        <p>Contenedor para pieza gráfica, publicación digital y análisis FODA asociado.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
+        <p>Publicación digital para redes sociales y análisis FODA asociado.</p>
+        <div class="embed-tile">
           <iframe
             title="Publicación en Facebook sobre la UPAF"
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid021XGgcSFDcW9GxDCyUX4ro1nxo2UN8PsGBqVs6NQ2mXGyNm9vTJs4uSeEaK51vmCpl%26id%3D100057621193525&show_text=true&width=500"
+            width="500"
+            height="538"
             loading="lazy"
             allowfullscreen
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>
-          <span class="tile-action">Ampliar recurso</span>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
 
-      <article class="resource-card reveal">
+      <article class="resource-card">
         <div class="card-topline">
           <span class="item-number">09</span>
-          <span class="card-icon" aria-hidden="true">◫</span>
+          <span class="card-icon">I</span>
         </div>
         <h2>Informe Técnico y Árboles de Problemas</h2>
         <p>Área para informe técnico, anexos y esquemas de árbol de problemas.</p>
-        <div class="embed-tile" role="button" tabindex="0" aria-expanded="false">
-          <div class="embed-canvas">Aquí irá el informe técnico y los árboles de problemas.</div>
-          <span class="tile-action">Ampliar recurso</span>
+        <div class="embed-tile">
+          <div class="iframe-placeholder">Aquí irá el informe técnico y los árboles de problemas.</div>
+          <button class="expand-control" type="button">
+            <span>Ampliar recurso</span>
+          </button>
         </div>
       </article>
     </section>
@@ -176,7 +507,24 @@ Claro. Acá tenés el código completo de la página `desarrollo.html`, ya con l
     <p>UPAF Agroecológica · Desarrollo del TPI · 2026</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.querySelectorAll(".expand-control").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".resource-card");
+        const label = button.querySelector("span");
+
+        if (!card || !label) return;
+
+        const willExpand = !card.classList.contains("is-expanded");
+
+        card.classList.toggle("is-expanded", willExpand);
+        label.textContent = willExpand ? "Reducir recurso" : "Ampliar recurso";
+
+        if (willExpand) {
+          card.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-```
