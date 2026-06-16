@@ -206,7 +206,7 @@
     .embed-tile {
       position: relative;
       width: 100%;
-      height: 260px;
+      height: 300px;
       margin-top: auto;
       overflow: hidden;
       border-radius: var(--radius);
@@ -240,6 +240,10 @@
       height: 640px;
       margin-top: 20px;
       box-shadow: none;
+    }
+
+    .resource-card.is-expanded .embed-tile.canva-tile {
+      height: 980px;
     }
 
     .expand-control {
@@ -315,11 +319,15 @@
       }
 
       .embed-tile {
-        height: 230px;
+        height: 260px;
       }
 
       .resource-card.is-expanded .embed-tile {
         height: 520px;
+      }
+
+      .resource-card.is-expanded .embed-tile.canva-tile {
+        height: 760px;
       }
     }
   </style>
@@ -451,8 +459,14 @@
         <h2>Infografía Económica</h2>
         <p>Área destinada a la infografía con datos económicos y análisis productivo.</p>
 
-        <div class="embed-tile">
-          <div class="iframe-placeholder">Aquí irá la infografía económica.</div>
+        <div class="embed-tile canva-tile">
+          <iframe
+            title="Análisis Costo-Beneficio y Rentabilidad de la UPAF Agroecológica"
+            src="https://www.canva.com/design/DAHMsOQF4Qk/QjlqjZx2T0Th_l57SHjaow/view?embed"
+            loading="lazy"
+            allowfullscreen
+            allow="fullscreen">
+          </iframe>
 
           <button class="expand-control" type="button">
             <span>Ampliar recurso</span>
