@@ -956,3 +956,38 @@ code {
   z-index: 20;
   pointer-events: none;
 }
+/* Ítem 7 - Calendario Canva clickeable */
+
+.canva-link-preview {
+  position: relative;
+  padding-bottom: 54px;
+}
+
+.canva-link-preview .open-resource-layer {
+  position: absolute;
+  inset: 0 0 54px 0;
+  z-index: 15;
+  display: block;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+}
+
+.canva-link-preview .resource-link {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 25;
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #3f6f4a;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.canva-link-preview .resource-link:hover {
+  background: #273f2f;
+}
