@@ -935,3 +935,24 @@ code {
   max-width: 100%;
   text-align: center;
 }
+
+
+/* Hace clickeable el calendario de Canva completo */
+
+.canva-clickable-preview {
+  position: relative;
+}
+
+.canva-clickable-preview .iframe-open-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: block;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.canva-clickable-preview .tile-action {
+  z-index: 20;
+  pointer-events: none;
+}
