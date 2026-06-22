@@ -25,10 +25,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       color: var(--ink);
@@ -210,25 +206,25 @@
     .embed-tile {
       position: relative;
       width: 100%;
-      min-height: 300px;
+      height: 300px;
       margin-top: auto;
       overflow: hidden;
       border-radius: var(--radius);
       background: white;
       box-shadow: 0 12px 28px rgba(39, 63, 47, 0.1);
-      transition: box-shadow 180ms ease;
+      transition: height 220ms ease, box-shadow 180ms ease;
     }
 
     .embed-tile iframe {
       display: block;
       width: 100%;
-      height: 300px;
+      height: 100%;
       border: 0;
       background: white;
     }
 
     .iframe-placeholder {
-      min-height: 300px;
+      height: 100%;
       display: grid;
       place-items: center;
       padding: 22px;
@@ -240,91 +236,49 @@
       font-weight: 800;
     }
 
-    .embed-viewer {
-      width: 100%;
-      max-width: 1040px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--cream);
-      box-shadow: 0 16px 36px rgba(39, 63, 47, 0.14);
-    }
-
-    .embed-viewer iframe,
-    .embed-viewer .folleto-embed {
-      display: block;
-      width: 100%;
-      height: 300px;
-      border: 0;
-      background: var(--white);
-    }
-
-    .fullscreen-link {
-      display: table;
-      margin: 14px auto 54px;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      color: white;
-      background: var(--green-700);
-      font-weight: 800;
-      text-align: center;
-      transition: background 180ms ease, transform 180ms ease;
-    }
-
-    .fullscreen-link:hover,
-    .fullscreen-link:focus-visible {
-      background: var(--green-900);
-      transform: translateY(-1px);
-    }
-
-    .canva-tile iframe {
-      height: 420px;
-    }
-
-    .facebook-embed {
-      max-width: 500px;
-      height: 538px !important;
-      margin: 0 auto;
-    }
-
-    .resource-card.is-expanded .embed-tile iframe {
+    .resource-card.is-expanded .embed-tile {
       height: 640px;
+      margin-top: 20px;
+      box-shadow: none;
     }
 
-    .resource-card.is-expanded .embed-viewer iframe,
-    .resource-card.is-expanded .embed-viewer .folleto-embed {
-      height: 640px;
-    }
-
-    .resource-card.is-expanded .canva-tile iframe {
+    .resource-card.is-expanded .embed-tile.canva-tile {
       height: 980px;
-    }
-
-    .resource-card.is-expanded .facebook-embed {
-      height: 620px !important;
     }
 
     .expand-control {
       position: absolute;
-      right: 12px;
-      bottom: 12px;
+      inset: 0;
       z-index: 5;
+      width: 100%;
       border: 0;
-      padding: 0;
       color: var(--green-900);
-      background: transparent;
+      background: linear-gradient(180deg, transparent 45%, rgba(39, 63, 47, 0.24));
       cursor: pointer;
       font: inherit;
     }
 
     .expand-control span {
-      display: inline-block;
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
       padding: 6px 11px;
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.94);
       box-shadow: 0 8px 20px rgba(39, 63, 47, 0.12);
       font-size: 0.78rem;
       font-weight: 900;
+    }
+
+    .resource-card.is-expanded .expand-control {
+      inset: auto 12px 12px auto;
+      width: auto;
+      background: transparent;
+    }
+
+    .resource-card.is-expanded .expand-control span {
+      position: static;
+      display: inline-block;
     }
 
     .footer {
@@ -364,28 +318,15 @@
         min-height: 0;
       }
 
-      .embed-tile iframe,
-      .iframe-placeholder {
-        min-height: 260px;
-      }
-
-      .embed-viewer iframe,
-      .embed-viewer .folleto-embed {
+      .embed-tile {
         height: 260px;
-        min-height: 260px;
       }
 
-      .resource-card.is-expanded .embed-tile iframe {
+      .resource-card.is-expanded .embed-tile {
         height: 520px;
       }
 
-      .resource-card.is-expanded .embed-viewer iframe,
-      .resource-card.is-expanded .embed-viewer .folleto-embed {
-        height: 520px;
-        min-height: 520px;
-      }
-
-      .resource-card.is-expanded .canva-tile iframe {
+      .resource-card.is-expanded .embed-tile.canva-tile {
         height: 760px;
       }
     }
@@ -427,23 +368,14 @@
         <p>Folleto díptico sobre la UPAF.</p>
 
         <div class="embed-tile">
-          <div class="embed-viewer">
-            <iframe
-              class="folleto-embed"
-              title="Folleto Díptico - UPAF"
-              src="https://v.calameo.com/?bkcode=008247612fd57a6945a5d&mode=viewer&view=book&showsharemenu=false"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-          <a
-            class="fullscreen-link"
-            href="https://www.calameo.com/books/008247612fd57a6945a5d"
-            target="_blank"
-            rel="noopener">
-            Abrir folleto en pantalla completa
-          </a>
+          <iframe
+            title="Folleto Díptico - UPAF"
+            src="https://v.calameo.com/?bkcode=008247612fd57a6945a5d&mode=viewer"
+            width="480"
+            height="300"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
 
           <button class="expand-control" type="button">
             <span>Ampliar recurso</span>
@@ -456,7 +388,7 @@
           <span class="item-number">02</span>
           <span class="card-icon">V</span>
         </div>
-        <h2>Seguridad, Higiene y Bioseguridad</h2>
+        <h2> Seguridad, Higiene y Bioseguridad </h2>
         <p>Video educativo.</p>
 
         <div class="embed-tile">
@@ -477,13 +409,15 @@
         <p>Slides - Diapositivas.</p>
 
         <div class="embed-tile">
-          <iframe
-            title="Item 3 - Slides"
-            src="https://www.canva.com/design/DAHM9b0tXGA/c1VHVhHU1wNDwC_fz3Lo_Q/view?embed"
-            loading="lazy"
-            allowfullscreen
-            allow="fullscreen">
-          </iframe>
+          <div class="iframe-placeholder"><div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAHM9b0tXGA/c1VHVhHU1wNDwC_fz3Lo_Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHM9b0tXGA&#x2F;c1VHVhHU1wNDwC_fz3Lo_Q&#x2F;view?utm_content=DAHM9b0tXGA&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Item 3 - Slides</a> de Juan D. Soto
+</div>
 
           <button class="expand-control" type="button">
             <span>Ampliar recurso</span>
@@ -532,7 +466,7 @@
         </div>
         <h2>Infografía sobre Costo-Beneficio</h2>
         <p>Análisis costo-beneficio, gastos y rentabilidad de la UPAF.</p>
-
+        
         <div class="embed-tile canva-tile">
           <iframe
             title="Análisis Costo-Beneficio y Rentabilidad de la UPAF Agroecológica"
@@ -571,11 +505,9 @@
           <span class="card-icon">#</span>
         </div>
         <h2>Publicación para Redes Sociales y FODA</h2>
-        <p>Publicación compartida en la red social: Facebook.</p>
-
+        <p>Publicación compartidad en la red social: Facebook</p>
         <div class="embed-tile">
           <iframe
-            class="facebook-embed"
             title="Publicación en Facebook sobre la UPAF"
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid021XGgcSFDcW9GxDCyUX4ro1nxo2UN8PsGBqVs6NQ2mXGyNm9vTJs4uSeEaK51vmCpl%26id%3D100057621193525&show_text=true&width=500"
             width="500"
@@ -618,8 +550,8 @@
   </main>
 
   <footer class="footer">
-    <p>I.S.F.D. "José Manuel Estrada" || Profesorado en Educación Tecnológica</p>
-    <p>UPAF Agroecológica · Desarrollo del TPI · 2026 || Alumno: Juan D. Soto</p>
+    <p>I.S.F.D. "José Manuel Estrada  ||  Profesorado en Educación Tecnológica"</p> 
+    <p>UPAF Agroecológica · Desarrollo del TPI · 2026  || Alumno: Juan D. Soto</p> 
   </footer>
 
   <script>
