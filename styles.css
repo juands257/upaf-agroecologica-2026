@@ -912,3 +912,26 @@ code {
     height: 540px !important;
   }
 }
+
+
+/* Centrar encabezado principal de la página Desarrollo */
+
+.dashboard-title {
+  text-align: center;
+}
+
+.dashboard-title > div {
+  display: grid;
+  justify-items: center;
+}
+
+.dashboard-title h1 {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.dashboard-title p {
+  max-width: 100%;
+  text-align: center;
+}
