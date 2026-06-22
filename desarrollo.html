@@ -239,40 +239,8 @@
       font-weight: 800;
     }
 
-    .calameo-preview {
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(244, 239, 227, 0.75), var(--white));
-      box-shadow: 0 16px 36px rgba(39, 63, 47, 0.16);
-    }
-
-    .calameo-preview iframe {
-      display: block;
-      width: 100%;
-      height: 360px;
-      border: 0;
-      background: var(--white);
-    }
-
-    .resource-link {
-      position: relative;
-      z-index: 6;
-      display: table;
-      margin: 14px auto 54px;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      color: white;
-      background: var(--green-700);
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .resource-link:hover,
-    .resource-link:focus-visible {
-      background: var(--green-900);
+    .canva-diptico-embed {
+      height: 360px !important;
     }
 
     .canva-infografia-embed {
@@ -293,12 +261,8 @@
       height: 640px;
     }
 
-    .resource-card.is-expanded .calameo-preview {
-      max-width: 960px;
-    }
-
-    .resource-card.is-expanded .calameo-preview iframe {
-      height: 640px;
+    .resource-card.is-expanded .canva-diptico-embed {
+      height: 720px !important;
     }
 
     .resource-card.is-expanded .canva-infografia-embed {
@@ -378,17 +342,22 @@
         min-height: 260px;
       }
 
-      .calameo-preview iframe {
-        height: 340px;
-        min-height: 340px;
-      }
-
       .resource-card.is-expanded .embed-tile iframe {
         height: 520px;
       }
 
-      .resource-card.is-expanded .calameo-preview iframe {
-        height: 560px;
+      .canva-diptico-embed {
+        height: 320px !important;
+        min-height: 320px;
+      }
+
+      .canva-calendario-embed {
+        height: 320px !important;
+        min-height: 320px;
+      }
+
+      .resource-card.is-expanded .canva-diptico-embed {
+        height: 560px !important;
         min-height: 560px;
       }
 
@@ -398,6 +367,7 @@
 
       .resource-card.is-expanded .canva-calendario-embed {
         height: 560px !important;
+        min-height: 560px;
       }
     }
   </style>
@@ -438,22 +408,14 @@
         <p>Folleto díptico sobre la UPAF.</p>
 
         <div class="embed-tile">
-          <div class="calameo-preview">
-            <iframe
-              title="Folleto Díptico - UPAF"
-              src="https://v.calameo.com/?bkcode=008247612fd57a6945a5d&mode=viewer&view=book&showsharemenu=false"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-          <a
-            class="resource-link"
-            href="https://www.calameo.com/books/008247612fd57a6945a5d"
-            target="_blank"
-            rel="noopener">
-            Abrir folleto en pantalla completa
-          </a>
+          <iframe
+            class="canva-diptico-embed"
+            title="Folleto Díptico - UPAF"
+            src="https://www.canva.com/design/DAHMgf7BqwM/Q78pcGHdsYxn1C11ywBVEQ/view?embed"
+            loading="lazy"
+            allowfullscreen
+            allow="fullscreen">
+          </iframe>
 
           <button class="expand-control" type="button">
             <span>Ampliar recurso</span>
