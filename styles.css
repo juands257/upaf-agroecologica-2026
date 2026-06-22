@@ -847,3 +847,68 @@ code {
     min-height: 520px;
   }
 }
+
+
+/* Mejora visual del ítem 9 - Informe / reporte */
+
+.report-preview {
+  padding: 14px;
+  background:
+    linear-gradient(135deg, rgba(223, 232, 216, 0.65), rgba(244, 239, 227, 0.45)),
+    #ffffff;
+  border: 1px solid rgba(63, 111, 74, 0.22);
+}
+
+.report-preview-label {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #273f2f;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(228, 223, 209, 0.9);
+}
+
+.report-preview-label span {
+  color: #8a6748;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.report-preview-label strong {
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.report-preview .calameo-embed {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 340px !important;
+  border: 0 !important;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(39, 63, 47, 0.14);
+}
+
+.resource-card.is-expanded .report-preview .calameo-embed {
+  height: 640px !important;
+}
+
+.report-preview .tile-action {
+  right: 22px;
+  bottom: 22px;
+}
+
+@media (max-width: 720px) {
+  .report-preview .calameo-embed {
+    height: 320px !important;
+  }
+
+  .resource-card.is-expanded .report-preview .calameo-embed {
+    height: 540px !important;
+  }
+}
