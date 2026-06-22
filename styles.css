@@ -991,3 +991,28 @@ code {
 .canva-link-preview .resource-link:hover {
   background: #273f2f;
 }
+
+
+/* Ítem 5 - Mapa Mental en Canva */
+
+.embed-tile .canva-mapa-embed {
+  width: 100% !important;
+  height: 430px !important;
+  border: 0 !important;
+}
+
+.resource-card.is-expanded .embed-tile .canva-mapa-embed {
+  height: 900px !important;
+}
+
+@media (max-width: 720px) {
+  .embed-tile .canva-mapa-embed {
+    height: 430px !important;
+    min-height: 430px;
+  }
+
+  .resource-card.is-expanded .embed-tile .canva-mapa-embed {
+    height: 760px !important;
+    min-height: 760px;
+  }
+}
