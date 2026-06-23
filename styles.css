@@ -1097,3 +1097,29 @@ Y reemplazalo por este:
     min-height: 560px;
   }
 }
+
+/* Secuencia didáctica centrada y con ancho más cómodo */
+
+.section .embed-shell.large {
+  width: min(100% - 32px, 860px);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.document-embed {
+  display: block;
+  width: 100%;
+  min-height: 680px;
+  border: 0;
+  background: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .section .embed-shell.large {
+    width: min(100% - 24px, 100%);
+  }
+
+  .document-embed {
+    min-height: 560px;
+  }
+}
