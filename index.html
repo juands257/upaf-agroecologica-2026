@@ -13,11 +13,13 @@
         <span class="brand-mark" aria-hidden="true">UP</span>
         <span>UPAF Agroecológica</span>
       </a>
+
       <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
+
       <div class="nav-links">
         <a class="active" href="index.html">Inicio</a>
         <a href="desarrollo.html">Desarrollo del TPI</a>
@@ -38,28 +40,34 @@
     <section class="section section-grid">
       <div class="media-frame reveal">
         <div class="image-placeholder">
-           <img src="portada.png"
-       alt="UPAF Agroecológica"
-       style="width:100%; height:auto; border-radius:16px;">
-
-      <p>Imagen ilustrativa de la UPAF.</p>
-      <p>                              </p>
+          <img
+            src="portada.png"
+            alt="Imagen de portada de la UPAF Agroecológica"
+            class="main-image">
+          <p>Imagen ilustrativa de la UPAF.</p>
         </div>
       </div>
 
       <article class="content-panel reveal">
         <p class="eyebrow">Sección 1</p>
         <h2>Presentación de la UPAF</h2>
-        <p>Espacio para incorporar la descripción general de la unidad productiva agroecológica, sus objetivos formativos y el contexto de producción.</p>
+
+        <p>
+          Espacio para incorporar la descripción general de la unidad productiva agroecológica,
+          sus objetivos formativos y el contexto de producción.
+        </p>
+
         <dl class="data-list">
           <div>
             <dt>Producciones</dt>
             <dd>Maíz dulce, poroto, remolacha y achicoria.</dd>
           </div>
+
           <div>
             <dt>Modalidad</dt>
             <dd>Unidad productiva agroecológica familiar.</dd>
           </div>
+
           <div>
             <dt>Recursos</dt>
             <dd>PDFs, videos, infografías y presentaciones embebidas.</dd>
@@ -73,6 +81,7 @@
         <p class="eyebrow">Sección 2</p>
         <h2>Resumen de la Secuencia Didáctica</h2>
       </div>
+
       <article class="summary-card reveal">
         <div class="summary-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48">
@@ -82,9 +91,23 @@
             <path d="M24 26c6-1 10-5 12-10"></path>
           </svg>
         </div>
+
         <div>
-          <h3>Tarjeta visual de síntesis</h3>
-          <p>Área reservada para una breve descripción de la secuencia didáctica, sus momentos, propósitos y recursos principales.</p>
+          <h3>Automatización aplicada a la producción agropecuaria</h3>
+
+          <p>
+            La presente secuencia didáctica aborda el tema de la automatización aplicada a la producción
+            agropecuaria, a partir de la comparación entre una huerta tradicional y una huerta inteligente.
+            A lo largo de la clase, los estudiantes analizan una situación problemática vinculada al riego
+            y proponen soluciones tecnológicas sencillas, reconociendo el papel de la tecnología en la mejora
+            de los procesos productivos.
+          </p>
+
+          <p>
+            La propuesta se desarrolla mediante actividades grupales y reflexivas que permiten identificar
+            diferencias entre procesos manuales y automatizados, comprender el concepto de automatización
+            y valorar su importancia en el uso eficiente de recursos como el agua y el tiempo.
+          </p>
         </div>
       </article>
     </section>
@@ -94,11 +117,13 @@
         <p class="eyebrow">Sección 3</p>
         <h2>Secuencia Didáctica</h2>
       </div>
+
       <div class="embed-shell large reveal">
         <div class="embed-toolbar">
           <span>Visor PDF</span>
           <span>iframe preparado</span>
         </div>
+
         <div class="embed-placeholder">
           <p>Aquí se incrustará la secuencia didáctica en formato PDF.</p>
           <code>&lt;iframe src="ruta-del-pdf.pdf"&gt;&lt;/iframe&gt;</code>
@@ -114,3 +139,15 @@
   <script src="script.js"></script>
 </body>
 </html>
+```
+
+Para que la imagen no dependa de estilos en línea, agregá también esto al final de tu `styles.css`:
+
+```css
+.main-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+```
