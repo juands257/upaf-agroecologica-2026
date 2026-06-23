@@ -1123,3 +1123,22 @@ Y reemplazalo por este:
     min-height: 560px;
   }
 }
+
+/* Encabezado de la página Desarrollo */
+
+.dashboard-title {
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, rgba(39, 63, 47, 0.96), rgba(63, 111, 74, 0.88)),
+    linear-gradient(135deg, #273f2f, #6e9a65);
+}
+
+.dashboard-title .eyebrow,
+.dashboard-title h1,
+.dashboard-title p {
+  color: #ffffff;
+}
+
+.dashboard-title p {
+  color: rgba(255, 255, 255, 0.86);
+}
