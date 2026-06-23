@@ -120,14 +120,16 @@
 
       <div class="embed-shell large reveal">
         <div class="embed-toolbar">
-          <span>Visor PDF</span>
-          <span>iframe preparado</span>
+          <span>Secuencia Didáctica</span>
+          <span>Documento incrustado</span>
         </div>
 
-        <div class="embed-placeholder">
-          <p>Aquí se incrustará la secuencia didáctica en formato PDF.</p>
-          <code>&lt;iframe src="ruta-del-pdf.pdf"&gt;&lt;/iframe&gt;</code>
-        </div>
+        <iframe
+          class="document-embed"
+          title="Secuencia Didáctica"
+          src="https://docs.google.com/document/d/e/2PACX-1vS4rLDnPW2MPdpsQBTANi0W0fSlacHZTo8EdYUgH3TrhfxqoQtCGMOrkkI7AzbZ5825nldWtmQhPQYa/pub?embedded=true"
+          loading="lazy">
+        </iframe>
       </div>
     </section>
   </main>
@@ -139,15 +141,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-```
-
-Para que la imagen no dependa de estilos en línea, agregá también esto al final de tu `styles.css`:
-
-```css
-.main-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-```
