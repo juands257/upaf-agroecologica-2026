@@ -1073,3 +1073,27 @@ Y reemplazalo por este:
   }
 }
 
+
+/* Ítem 3 - Presentación UPAF en Canva */
+
+.embed-tile .canva-presentacion-embed {
+  width: 100% !important;
+  height: 300px !important;
+  border: 0 !important;
+}
+
+.resource-card.is-expanded .embed-tile .canva-presentacion-embed {
+  height: 720px !important;
+}
+
+@media (max-width: 720px) {
+  .embed-tile .canva-presentacion-embed {
+    height: 260px !important;
+    min-height: 260px;
+  }
+
+  .resource-card.is-expanded .embed-tile .canva-presentacion-embed {
+    height: 560px !important;
+    min-height: 560px;
+  }
+}
