@@ -1142,3 +1142,27 @@ Y reemplazalo por este:
 .dashboard-title p {
   color: rgba(255, 255, 255, 0.86);
 }
+
+/* Ítem 4 - Video Economía Circular en Canva */
+
+.embed-tile .canva-reel-embed {
+  width: 100% !important;
+  height: 460px !important;
+  border: 0 !important;
+}
+
+.resource-card.is-expanded .embed-tile .canva-reel-embed {
+  height: 980px !important;
+}
+
+@media (max-width: 720px) {
+  .embed-tile .canva-reel-embed {
+    height: 500px !important;
+    min-height: 500px;
+  }
+
+  .resource-card.is-expanded .embed-tile .canva-reel-embed {
+    height: 780px !important;
+    min-height: 780px;
+  }
+}
