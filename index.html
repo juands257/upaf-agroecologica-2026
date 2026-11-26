@@ -6,6 +6,59 @@
   <title>UPAF Agroecológica</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    .home-cover {
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .home-cover-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 72px);
+      width: min(100% - 32px, var(--max-width));
+      margin-inline: auto;
+      padding-block: clamp(40px, 5.5vw, 80px);
+    }
+
+    .home-cover-copy .eyebrow {
+      margin-bottom: 14px;
+      color: var(--green-700);
+    }
+
+    .home-cover h1 {
+      color: var(--green-900);
+      font-size: clamp(2.5rem, 4.5vw, 4.25rem);
+      line-height: 1.03;
+      overflow-wrap: anywhere;
+    }
+
+    .home-cover-subtitle {
+      max-width: 42ch;
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: clamp(1rem, 1.7vw, 1.25rem);
+    }
+
+    .home-cover-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .home-presentation {
+      padding-block: clamp(28px, 4vw, 56px);
+    }
+
+    @media (max-width: 760px) {
+      .home-cover-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .content-panel p,
     .summary-card p {
       text-align: justify;
@@ -35,25 +88,25 @@
   </header>
 
   <main>
-    <section class="hero home-hero">
-      <div class="hero-content reveal">
-        <p class="eyebrow">Trabajo Práctico Integrador</p>
-        <h1>UPAF Agroecológica</h1>
-        <p class="hero-subtitle">Producción de maíz dulce, poroto, remolacha y achicoria</p>
+    <section class="home-cover" aria-labelledby="home-cover-title">
+      <div class="home-cover-inner">
+        <div class="home-cover-copy">
+          <p class="eyebrow">Trabajo Práctico Integrador</p>
+          <h1 id="home-cover-title">UPAF Agroecológica</h1>
+          <p class="home-cover-subtitle">Cultivo familiar de maíz dulce, poroto, remolacha y achicoria</p>
+        </div>
+
+        <img
+          class="home-cover-image"
+          src="portada.png"
+          alt="Ilustración de una huerta familiar con cultivos en macetas y cajones"
+          width="1672"
+          height="941"
+          fetchpriority="high">
       </div>
     </section>
 
-    <section class="section section-grid">
-      <div class="media-frame reveal">
-        <div class="image-placeholder">
-          <img
-            src="portada.png"
-            alt="Imagen de portada de la UPAF Agroecológica"
-            class="main-image">
-          
-        </div>
-      </div>
-
+    <section class="section home-presentation">
       <article class="content-panel reveal">
         <h2>Presentación de la UPAF</h2>
 
