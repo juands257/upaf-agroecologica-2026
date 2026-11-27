@@ -48,8 +48,8 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(228, 223, 209, 0.8);
-  background: rgba(251, 250, 244, 0.92);
+  border-bottom: 1px solid #c9d7c1;
+  background: var(--sage);
   backdrop-filter: blur(14px);
 }
 
