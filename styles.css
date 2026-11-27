@@ -48,9 +48,8 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #c9d7c1;
-  background: var(--sage);
-  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #55765e;
+  background: #284b38;
 }
 
 .navbar {
@@ -68,7 +67,7 @@ button {
   align-items: center;
   gap: 12px;
   font-weight: 700;
-  color: var(--green-900);
+  color: var(--cream);
 }
 
 .brand-mark {
@@ -92,24 +91,29 @@ button {
 .nav-links a {
   padding: 10px 14px;
   border-radius: var(--radius);
-  color: var(--green-900);
+  color: var(--cream);
   font-weight: 600;
   transition: background 180ms ease, color 180ms ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--white);
-  background: var(--green-700);
+  color: var(--green-900);
+  background: var(--sage);
+}
+
+.site-header :is(a, button):focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
 }
 
 .nav-toggle {
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
+  border: 1px solid #86a28a;
   border-radius: var(--radius);
-  background: var(--white);
+  background: transparent;
 }
 
 .nav-toggle span {
@@ -117,7 +121,7 @@ button {
   width: 20px;
   height: 2px;
   margin: 5px auto;
-  background: var(--green-900);
+  background: var(--cream);
   transition: transform 180ms ease, opacity 180ms ease;
 }
 
@@ -577,9 +581,9 @@ code {
     display: grid;
     gap: 8px;
     padding: 12px;
-    border: 1px solid var(--line);
+    border: 1px solid #86a28a;
     border-radius: var(--radius);
-    background: var(--white);
+    background: #284b38;
     box-shadow: var(--shadow);
     transform: translateY(-12px);
     opacity: 0;
