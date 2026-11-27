@@ -53,6 +53,37 @@
       padding-block: clamp(28px, 4vw, 56px);
     }
 
+    .home-presentation .content-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      align-items: center;
+      gap: clamp(20px, 3vw, 40px);
+    }
+
+    .home-presentation-image {
+      grid-column: 1;
+      grid-row: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .home-presentation-copy {
+      grid-column: 2;
+    }
+
+    @media (max-width: 760px) {
+      .home-presentation .content-panel {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .home-presentation-copy,
+      .home-presentation-image {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
     @media (max-width: 760px) {
       .home-cover-inner {
         grid-template-columns: 1fr;
@@ -108,30 +139,40 @@
 
     <section class="section home-presentation">
       <article class="content-panel reveal">
-        <h2>Presentación de la UPAF</h2>
+        <div class="home-presentation-copy">
+          <h2>Presentación de la UPAF</h2>
 
-        <p>
-          La UPAF Agroecológica es una unidad productiva familiar destinada a la producción sustentable
-          de alimentos sanos. Su propuesta integra prácticas agroecológicas, aprovechamiento responsable
-          de los recursos y trabajo colaborativo en el cultivo de maíz dulce, poroto, remolacha y achicoria.
-        </p>
+          <p>
+            La UPAF Agroecológica es una unidad productiva familiar destinada a la producción sustentable
+            de alimentos sanos. Su propuesta integra prácticas agroecológicas, aprovechamiento responsable
+            de los recursos y trabajo colaborativo en el cultivo de maíz dulce, poroto, remolacha y achicoria.
+          </p>
 
-        <dl class="data-list">
-          <div>
-            <dt>Producciones</dt>
-            <dd>Maíz dulce, poroto, remolacha y achicoria.</dd>
-          </div>
+          <dl class="data-list">
+            <div>
+              <dt>Producciones</dt>
+              <dd>Maíz dulce, poroto, remolacha y achicoria.</dd>
+            </div>
 
-          <div>
-            <dt>Modalidad</dt>
-            <dd>Unidad productiva agroecológica familiar.</dd>
-          </div>
+            <div>
+              <dt>Modalidad</dt>
+              <dd>Unidad productiva agroecológica familiar.</dd>
+            </div>
 
-          <div>
-            <dt>Recursos</dt>
-            <dd>PDFs, videos, infografías y presentaciones embebidas.</dd>
-          </div>
-        </dl>
+            <div>
+              <dt>Recursos</dt>
+              <dd>PDFs, videos, infografías y presentaciones embebidas.</dd>
+            </div>
+          </dl>
+        </div>
+        <img
+          class="home-presentation-image"
+          src="cultivos-upaf.webp"
+          alt="Maíz dulce, porotos, remolachas y achicoria sobre tablones de madera"
+          width="1200"
+          height="800"
+          loading="lazy"
+          decoding="async">
       </article>
     </section>
 
