@@ -15,6 +15,29 @@
       margin-inline: auto;
       text-align: center;
     }
+
+    .dashboard-grid:not(:has(.resource-card.is-expanded)) {
+      grid-auto-rows: 1fr;
+      align-items: stretch;
+    }
+
+    .dashboard-grid .resource-card:not(.is-expanded) .embed-tile {
+      display: flex;
+      flex-direction: column;
+      flex: none;
+      height: 250px;
+      min-height: 0;
+    }
+
+    .dashboard-grid .resource-card:not(.is-expanded) .embed-tile > :is(iframe, .embed-canvas) {
+      flex: 1 1 0;
+      min-height: 0;
+      height: auto !important;
+    }
+
+    .dashboard-grid .resource-card:not(.is-expanded) .report-preview-label {
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -266,5 +289,30 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.embed-tile[role="button"]').forEach((preview) => {
+      const card = preview.closest(".resource-card");
+      const action = preview.querySelector(".tile-action");
+      const iframe = preview.querySelector("iframe");
+
+      if (iframe) iframe.inert = true;
+
+      function togglePreview() {
+        const expanded = card.classList.toggle("is-expanded");
+        preview.setAttribute("aria-expanded", String(expanded));
+        action.textContent = expanded ? "Reducir recurso" : "Ampliar recurso";
+        if (iframe) iframe.inert = !expanded;
+        if (expanded) card.scrollIntoView({ block: "start" });
+      }
+
+      preview.addEventListener("click", togglePreview);
+      preview.addEventListener("keydown", (event) => {
+        if (event.target === preview && (event.key === "Enter" || event.key === " ")) {
+          event.preventDefault();
+          togglePreview();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
